@@ -1,0 +1,48 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+[tool.hatch.version]
+path = "main.py"
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+[project]
+name = "structured-data-viewer"
+version = __VERSION__
+description = "A python project aimed at improving the readibility of common structured data files such as JSON and YAML"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "dash>=2.3.1"
+]
+classifiers = [
+"Programming Language :: Python :: 3.12",
+"Programming Language :: Python :: 3.13",
+"License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)",
+"Operating System :: OS Independent",
+]
+keywords = ["data","viewer","gui"]
+[tool.pytest.ini_options]
+pythonpath = [
+  ".", "src"
+]
+testpaths = [
+  "tests"
+]
+[tool.coverage.run]
+omit = [
+  "src/utility/logs.py",
+  "main.py",
+  "tests/*",
+]
+[project.optional-dependencies]
+# development dependency groups
+test = [
+    'pytest',
+    'pytest-cov',
+]
+[project.scripts]
+data-viewer = "src.app.cli:main"
+[project.urls]
+Homepage = "https://github.com/GDeLuisi/data-viewer"
+Issues = "https://github.com/GDeLuisi/data-viewer/issues"
+Repository = "https://github.com/GDeLuisi/data-viewer"
