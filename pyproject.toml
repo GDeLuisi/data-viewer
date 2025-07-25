@@ -7,12 +7,13 @@ path = "main.py"
 packages = ["src"]
 [project]
 name = "structured-data-viewer"
-version = __VERSION__
+version = "__VERSION__"
 description = "A python project aimed at improving the readibility of common structured data files such as JSON and YAML"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "dash>=2.3.1"
+    "dash==2.3.1",
+    "pyyaml==6.0.2"
 ]
 classifiers = [
 "Programming Language :: Python :: 3.12",
@@ -41,7 +42,7 @@ test = [
     'pytest-cov',
 ]
 [project.scripts]
-data-viewer = "src.app.cli:main"
+data-viewer = "src.cli:main"
 [project.urls]
 Homepage = "https://github.com/GDeLuisi/data-viewer"
 Issues = "https://github.com/GDeLuisi/data-viewer/issues"
